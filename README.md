@@ -19,7 +19,7 @@ Imagem ilustrativa
 ![img.png](doc/img/arquitetura-hexagonal.png)
 
 ## Stack
-- Java 20
+- Java 17
 - Spring boot
 - Postgres
 - Gradle
