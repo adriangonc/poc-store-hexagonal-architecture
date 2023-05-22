@@ -21,5 +21,6 @@ Imagem ilustrativa
 ## Stack
 - Java 17
 - Spring boot
+- Spring data JPA
 - Postgres
 - Gradle
