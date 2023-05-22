@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfiguration {
 
     @Bean
-    ProductServicePort productService(ProductRepositoryPort productRepositoryPort){
+    ProductServicePort productServicePort(ProductRepositoryPort productRepositoryPort){
         return new OrderServiceImpl(productRepositoryPort);
     }
 
