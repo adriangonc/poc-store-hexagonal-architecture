@@ -13,4 +13,6 @@ public interface ProductServicePort {
 
     void updateStock(String sku, StockDTO stockDTO);
 
+    void deleteProductBySku(String sku);
+
 }

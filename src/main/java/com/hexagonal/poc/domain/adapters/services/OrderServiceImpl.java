@@ -34,4 +34,9 @@ public class OrderServiceImpl implements ProductServicePort {
     public void updateStock(String sku, StockDTO stockDTO) {
 
     }
+
+    @Override
+    public void deleteProductBySku(String sku) {
+        this.productRepositoryPort.deleteProduct(sku);
+    }
 }

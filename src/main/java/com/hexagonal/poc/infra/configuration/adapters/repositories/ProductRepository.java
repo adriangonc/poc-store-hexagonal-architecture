@@ -4,6 +4,7 @@ import com.hexagonal.poc.domain.Product;
 import com.hexagonal.poc.domain.ports.repositories.ProductRepositoryPort;
 import com.hexagonal.poc.infra.configuration.adapters.entities.ProductEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -47,5 +48,11 @@ public class ProductRepository implements ProductRepositoryPort {
         }
 
         this.springProductRepository.save(productEntity);
+    }
+
+    @Override
+    @Transactional
+    public void deleteProduct(String sku) {
+        this.springProductRepository.deleteProduct(sku);
     }
 }

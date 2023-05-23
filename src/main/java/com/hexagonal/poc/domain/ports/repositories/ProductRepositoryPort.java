@@ -12,4 +12,6 @@ public interface ProductRepositoryPort {
 
     void save(Product product);
 
+    void deleteProduct(String sku);
+
 }

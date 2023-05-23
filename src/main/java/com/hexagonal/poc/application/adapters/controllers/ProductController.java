@@ -35,4 +35,9 @@ public class ProductController {
         productServicePort.updateStock(sku, stockDTO);
     }
 
+    @DeleteMapping(value = "/{sku}")
+    void deleteBySku(@PathVariable String sku){
+        productServicePort.deleteProductBySku(sku);
+    }
+
 }
