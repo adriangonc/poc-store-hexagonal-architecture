@@ -6,6 +6,7 @@ import com.hexagonal.poc.infra.configuration.adapters.entities.ProductEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
@@ -30,6 +31,14 @@ public class ProductRepository implements ProductRepositoryPort {
 
     @Override
     public void save(Product product) {
+        ProductEntity productEntity;
+        if (Objects.isNull(product.getCode())){
+            productEntity = new ProductEntity(product);
+        } else {
+            productEntity = this.springProductRepository.findById(product.getCode()).get();
+            productEntity.update(product);
+        }
 
+        this.springProductRepository.save(productEntity);
     }
 }

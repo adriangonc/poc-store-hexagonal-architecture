@@ -26,7 +26,8 @@ public class OrderServiceImpl implements ProductServicePort {
 
     @Override
     public void createProduct(ProductDTO productDTO) {
-
+        Product product = new Product(productDTO);
+        this.productRepositoryPort.save(product);
     }
 
     @Override
