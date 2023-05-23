@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -26,7 +27,13 @@ public class ProductRepository implements ProductRepositoryPort {
 
     @Override
     public Product findBySku(String sku) {
-        return null;
+        Optional<ProductEntity> productEntity = this.springProductRepository.findBySku(sku);
+
+        if (productEntity.isPresent()){
+            return productEntity.get().toProduct();
+        }
+
+        throw new RuntimeException("Product not find");
     }
 
     @Override

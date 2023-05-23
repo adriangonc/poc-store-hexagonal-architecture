@@ -1,7 +1,10 @@
 package com.hexagonal.poc.application.adapters.controllers;
 
 import com.hexagonal.poc.domain.dto.ProductDTO;
+import com.hexagonal.poc.domain.dto.StockDTO;
 import com.hexagonal.poc.domain.ports.interfaces.ProductServicePort;
+import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,4 +29,10 @@ public class ProductController {
     void createProduct(@RequestBody ProductDTO productDTO) {
         productServicePort.createProduct(productDTO);
     }
+
+    @PutMapping(value = "/{sku}")
+    void updateStock(@PathVariable String sku, @RequestBody StockDTO stockDTO) throws ChangeSetPersister.NotFoundException {
+        productServicePort.updateStock(sku, stockDTO);
+    }
+
 }
