@@ -24,3 +24,4 @@ Imagem ilustrativa
 - Spring data JPA
 - Postgres
 - Gradle
+- Docker
