@@ -1,10 +1,10 @@
 package com.hexagonal.poc.application.adapters.controllers;
 
+import com.hexagonal.poc.domain.Product;
 import com.hexagonal.poc.domain.dto.ProductDTO;
 import com.hexagonal.poc.domain.dto.StockDTO;
 import com.hexagonal.poc.domain.ports.interfaces.ProductServicePort;
 import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,8 +26,8 @@ public class ProductController {
     }
 
     @PostMapping
-    void createProduct(@RequestBody ProductDTO productDTO) {
-        productServicePort.createProduct(productDTO);
+    Product createProduct(@RequestBody ProductDTO productDTO) {
+        return productServicePort.createProduct(productDTO);
     }
 
     @PutMapping(value = "/{sku}")

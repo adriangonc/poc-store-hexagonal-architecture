@@ -1,5 +1,6 @@
 package com.hexagonal.poc.domain.ports.interfaces;
 
+import com.hexagonal.poc.domain.Product;
 import com.hexagonal.poc.domain.dto.ProductDTO;
 import com.hexagonal.poc.domain.dto.StockDTO;
 
@@ -9,7 +10,7 @@ public interface ProductServicePort {
 
     List<ProductDTO> findAllProducts();
 
-    void createProduct(ProductDTO productDTO);
+    Product createProduct(ProductDTO productDTO);
 
     void updateStock(String sku, StockDTO stockDTO);
 
